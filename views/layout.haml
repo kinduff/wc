@@ -2,7 +2,11 @@
 %html
   %head
     %title Whiteboard Cleaner
+    %link{:href => "css/style.css", :rel => "stylesheet", :type => "text/css"}
   %body
-    %h1 Whiteboard Cleaner
-    = yield
+    #wrap
+      .header
+        %h1 Whiteboard Cleaner
+        %h2 Clean your whiteboard pictures. It's fast, easy and free.
+      = yield
     %script{src:'js/script.js'}

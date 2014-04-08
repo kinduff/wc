@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'haml'
- 
+
 get '/' do
   haml :index
 end
