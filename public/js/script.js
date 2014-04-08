@@ -28,7 +28,7 @@ function send_image(e) {
   xhr.send(formData);
 }
 function reset_form() {
-  submit.value = 'Enviar';
+  submit.value = 'Upload!';
   submit.disabled = false;
   form.reset();
 }

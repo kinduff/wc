@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-require 'rubygems'
-require 'sinatra'
 require 'haml'
  
 get '/' do
@@ -10,7 +8,6 @@ end
 post '/process' do
   imagen = params[:imagen][0]
   formats = ['.png', '.jpg', '.jpeg']
-  puts File.extname(imagen[:filename]).downcase
   if formats.include? File.extname(imagen[:filename]).downcase
     original = 'tmp/'+imagen[:filename]
     converted = 'tmp/'+imagen[:filename].split('.').first+'.png'
