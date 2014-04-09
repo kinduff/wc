@@ -1,7 +1,4 @@
 #!/usr/bin/env ruby
-require 'haml'
-require 'thin'
-
 get '/' do
   haml :index
 end
