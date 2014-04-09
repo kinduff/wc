@@ -11,7 +11,7 @@ function send_image(e) {
   data = file.files[0];
   formData = new FormData();
   formData.append('imagen[]', data, data.name);
-  label.innerHTML = 'Processing...';
+  toggle_form();
   xhr = new XMLHttpRequest();
   xhr.open('POST', '/process', true);
   xhr.onload = function () {
@@ -32,8 +32,13 @@ function send_image(e) {
   };
   xhr.send(formData);
 }
+function toggle_form() {
+  label.innerHTML = 'Processing...';
+  file.style.visibility = 'hidden';
+}
 function reset_form() {
-  label.innerHTML = 'Upload Whiteboard Image';
+  label.innerHTML = 'Upload A Whiteboard Image';
+  file.style.visibility = 'visible';
   form.reset();
 }
 function center_wrap(elem) {
