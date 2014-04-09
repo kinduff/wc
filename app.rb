@@ -5,6 +5,20 @@ end
 
 post '/process' do
   imagen = params[:imagen][0]
+  process_image imagen
+end
+
+post '/download' do
+  file = params[:imagen]
+  send_file file,
+    :filename => 'descarga.png',
+    :disposition => 'attachment',
+    :stream => false,
+    :type => 'image/png',
+    :status => 200
+end
+
+def process_image imagen
   formats = ['.png', '.jpg', '.jpeg']
   if formats.include? File.extname(imagen[:filename]).downcase
     original = 'tmp/'+imagen[:filename]
@@ -18,14 +32,4 @@ post '/process' do
   else
     status 400
   end
-end
-
-post '/download' do
-  file = params[:imagen]
-  send_file file,
-    :filename => 'descarga.png',
-    :disposition => 'attachment',
-    :stream => false,
-    :type => 'image/png',
-    :status => 200
 end
